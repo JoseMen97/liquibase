@@ -5,6 +5,8 @@ databaseChangeLog:
     changes:
       - sqlFile:
         relativeToChangelogFile: false
+        comment: Generating mock data
+        dbms: "oracle"
         endDelimiter: ;
         splitStatemets: true
         path: /scripts/create-table.sql
