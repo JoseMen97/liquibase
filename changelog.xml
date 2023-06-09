@@ -14,7 +14,7 @@
             encoding="UTF-8"
             endDelimiter=";"
             path="scripts/create-table.sql"
-            relativeToChangelogFile="false"
+            relativeToChangelogFile="true"
             splitStatements="true"
             stripComments="true"/>
     </changeSet>
