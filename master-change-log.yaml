@@ -2,7 +2,7 @@ databaseChangeLog:
   - changeSet:
     id: 2
     autor: Jose-feature/sql1.0
-    change:
+    changes:
       - sqlFile:
         relativeToChangelogFile: false
         comment: creating table sql1
