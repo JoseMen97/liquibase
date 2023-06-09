@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
     id: 2
-    autor: Jose-feature/sql1.0
+    autor: Jose-feature
     changes:
       - sqlFile:
         relativeToChangelogFile: false
