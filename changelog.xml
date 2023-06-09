@@ -13,7 +13,7 @@
         <sqlFile dbms="oracle"
             encoding="UTF-8"
             endDelimiter=";"
-            path="./scripts/create-table.sql"
+            path="scripts/create-table.sql"
             relativeToChangelogFile="false"
             splitStatements="true"
             stripComments="true"/>
