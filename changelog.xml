@@ -10,12 +10,13 @@
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
     <changeSet id="3" author="Liquibase3">
-        <createTable tableName="test_table3">
-            <column name="test_id" type="int">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="test_column" type="varchar(255)"/>
-        </createTable>
+        <sqlFile dbms="oracle"
+            encoding="UTF-8"
+            endDelimiter=";"
+            path="/scripts/create-table.sql"
+            relativeToChangelogFile="false"
+            splitStatements="true"
+            stripComments="true"/>
     </changeSet>
 
 </databaseChangeLog>
