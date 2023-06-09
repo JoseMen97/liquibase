@@ -5,8 +5,6 @@ databaseChangeLog:
     changes:
       - sqlFile:
         relativeToChangelogFile: false
-        comment: creating table sql1
-        # dbms: "h2"
         endDelimiter: ;
         splitStatemets: true
         path: /scripts/create-table.sql
