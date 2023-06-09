@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+    id: 2
+    autor: Jose-feature/sql1.0
+    change:
+      - sqlFile:
+        relativeToChangelogFile: false
+        comment: creating table sql1
+        # dbms: "h2"
+        endDelimiter: ;
+        splitStatemets: true
+        path: /scripts/create-table.sql
