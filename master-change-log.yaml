@@ -4,9 +4,9 @@ databaseChangeLog:
     autor: Jose-feature
     changes:
       - sqlFile:
-        relativeToChangelogFile: false
-        comment: Generating mock data
+        relativeToChangelogFile: true
+        comment: creating table feature sql1.0
         dbms: "oracle"
         endDelimiter: ;
         splitStatemets: true
-        path: /scripts/create-table.sql
+        path: scripts/create-table.sql
