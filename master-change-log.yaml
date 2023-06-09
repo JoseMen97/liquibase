@@ -1,7 +1,7 @@
 databaseChangeLog:
-  -  preConditions:  
-    -  runningAs:  
-        username:  liquibase
+  - preConditions:  
+    - runningAs:  
+      username:  liquibase
   - changeSet:
     id: 2
     autor: jose
