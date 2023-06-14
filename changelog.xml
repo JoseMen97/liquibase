@@ -9,7 +9,14 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
-<!--insertar-->
-    
+    <changeSet id="#id" author="#autor">
+        <sqlFile dbms="oracle"
+            encoding="UTF-8"
+            endDelimiter=";"
+            path="scripts/#sql"
+            relativeToChangelogFile="true"
+            splitStatements="true"
+            stripComments="true"/>
+    </changeSet>
 
 </databaseChangeLog>
