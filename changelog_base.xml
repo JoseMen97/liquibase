@@ -13,8 +13,8 @@
         <sqlFile dbms="oracle"
             encoding="UTF-8"
             endDelimiter=";"
-            path="scripts/#sql"
-            relativeToChangelogFile="true"
+            path="#sql"
+            relativeToChangelogFile="false"
             splitStatements="true"
             stripComments="true"/>
     </changeSet>
