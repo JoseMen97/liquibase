@@ -9,14 +9,6 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
-    <changeSet id="4" author="feature/sql2.0">
-        <sqlFile dbms="oracle"
-            encoding="UTF-8"
-            endDelimiter=";"
-            path="scripts/create-table.sql"
-            relativeToChangelogFile="true"
-            splitStatements="true"
-            stripComments="true"/>
-    </changeSet>
+    
 
 </databaseChangeLog>
