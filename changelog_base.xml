@@ -12,6 +12,7 @@
     <changeSet id="#id" author="#autor">
         <sqlFile dbms="oracle"
             encoding="UTF-8"
+            endDelimiter="/"
             path="#sql"
             relativeToChangelogFile="true"
             splitStatements="true"
