@@ -10,3 +10,5 @@ databaseChangeLog:
             endDelimiter: /
             splitStatemets: true
             path:
+  - tagDatabase:
+      tag:
