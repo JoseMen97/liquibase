@@ -2,10 +2,10 @@ changeSet:
   id:
   author:
   changes:
-    - sqlFile:
-        relativeToChangelogFile: true
-        encoding: "UTF-8"
-        dbms: "oracle"
-        endDelimiter: /
-        splitStatemets: true
-        path:
+    sqlFile:
+      relativeToChangelogFile: true
+      encoding: "UTF-8"
+      dbms: "oracle"
+      endDelimiter: /
+      splitStatemets: true
+      path:
