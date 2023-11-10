@@ -1,6 +1,6 @@
 changeSet:
-  id: ""
-  author: ""
+  id:
+  author:
   changes:
     - sqlFile:
         relativeToChangelogFile: true
@@ -8,4 +8,4 @@ changeSet:
         dbms: "oracle"
         endDelimiter: /
         splitStatemets: true
-        path: ""
+        path:
