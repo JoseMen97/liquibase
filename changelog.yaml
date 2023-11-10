@@ -1,3 +1,6 @@
 databaseChangeLog:
   - includeAll:
       path: changesets
+
+  - tagDatabase:
+      tag:
