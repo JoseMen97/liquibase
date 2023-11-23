@@ -1,4 +1,4 @@
-create or replace noneditionable package body PKG_TIENDAVIRTUAL_SEGURIDAD is
+create or replace noneditionable package body pdbadmin.PKG_TIENDAVIRTUAL_SEGURIDAD is
 
 PROCEDURE SP_MOSTRAR_MENSAJE AS
   BEGIN
