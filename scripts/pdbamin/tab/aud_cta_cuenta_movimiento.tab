@@ -1,0 +1,8 @@
+create table pdbamin.AUD_CTA_CUENTA_MOVIMIENTO
+(
+  aud_cta_cuenta_movimiento_id  NUMBER(10) not null,
+  caso_id                       NUMBER(15),
+  codigo_operacion_id           VARCHAR2(20),
+  concepto_id                   VARCHAR2(4),
+  cuenta_id                     NUMBER(20),
+);
