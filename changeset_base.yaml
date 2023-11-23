@@ -4,9 +4,4 @@ databaseChangeLog:
       author:
       changes:
         - sqlFile:
-            relativeToChangelogFile: true
-            encoding: "UTF-8"
-            dbms: "oracle"
-            endDelimiter: /
-            splitStatemets: true
             path:
