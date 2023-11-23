@@ -1,2 +1,2 @@
 ALTER TABLE pdbadmin.AUD_CTA_CUENTA_MOVIMIENTO
-ADD nueva_columna VARCHAR2(255);
+ADD nueva_columna VARCHAR2;
