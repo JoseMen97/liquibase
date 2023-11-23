@@ -4,4 +4,5 @@ databaseChangeLog:
       author:
       changes:
         - sqlFile:
+            relativeToChangelogFile: true
             path:
