@@ -2,8 +2,7 @@ databaseChangeLog:
   - changeSet:
       id:
       author:
-      runWith:
-        command: "/opt/instantclient_19_19/sqlplus"
+      runWith: "sqlplus"
       changes:
         - sqlFile:
             relativeToChangelogFile: true
