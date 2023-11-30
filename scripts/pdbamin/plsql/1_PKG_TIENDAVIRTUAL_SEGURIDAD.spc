@@ -6,4 +6,3 @@ create or replace noneditionable package pdbadmin.PKG_TIENDAVIRTUAL_SEGURIDAD is
 
 PROCEDURE SP_MOSTRAR_MENSAJE ;
 end PKG_TIENDAVIRTUAL_SEGURIDAD;
-/

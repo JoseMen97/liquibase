@@ -1,4 +1,4 @@
-create table pdbadmin.transacional_total
+create table pdbadmin.transaccional_total
 (
   aud_cta_cuenta_movimiento_id  NUMBER(10) not null,
   caso_id                       NUMBER(15),
