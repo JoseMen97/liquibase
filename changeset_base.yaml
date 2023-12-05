@@ -8,6 +8,4 @@ databaseChangeLog:
             relativeToChangelogFile: true
             path:
             encoding: "UTF-8"
-            endDelimiter: ";"
-            splitStatements: true
             dbms: "oracle"
