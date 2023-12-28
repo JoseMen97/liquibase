@@ -25,6 +25,9 @@ jobs:
       - name: list files
         run: ls -la
 
+      - name: curl
+        run: telnet google.com 80
+
       - name: liquibase validate
         uses: liquibase-github-actions/validate@v4.25.1
         with:
