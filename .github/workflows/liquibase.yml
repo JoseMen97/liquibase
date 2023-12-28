@@ -24,3 +24,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: list files
         run: ls -la
+
+      - name: liquibase validate
+        uses: liquibase-github-actions/validate@v4.25.1
+        with:
+          changelogFile: changelog.yaml
+          driverPropertiesFile: liquibase.properties
+    # password: # optional
+    # # *required* The JDBC database connection URL
+    # url: 
+    # # Username to use to connect to the database
+    # username: # optional
