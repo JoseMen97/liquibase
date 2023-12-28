@@ -29,9 +29,11 @@ jobs:
         uses: liquibase-github-actions/validate@v4.25.1
         with:
           changelogFile: changelog.yaml
-          driverPropertiesFile: liquibase.properties
+          # driverPropertiesFile: liquibase.properties
+          url: jdbc:oracle:thin:@oracledb-service:1521/admindb
+          username: pdbamin
+          password: Admin12345
     # password: # optional
     # # *required* The JDBC database connection URL
-    # url: 
     # # Username to use to connect to the database
     # username: # optional
