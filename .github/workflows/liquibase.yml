@@ -30,7 +30,7 @@ jobs:
         with:
           changelogFile: changelog.yaml
           # driverPropertiesFile: liquibase.properties
-          url: jdbc:oracle:thin:@2.tcp.ngrok.io:11053/admindb
+          url: jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb
           username: pdbadmin
           password: Admin12345
     # password: # optional
