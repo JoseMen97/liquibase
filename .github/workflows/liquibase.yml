@@ -32,8 +32,8 @@ jobs:
           defaultsFile: liquibase.properties
           # driverPropertiesFile: liquibase.properties
           # url: jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb
-          # username: pdbadmin
-          # password: Admin12345
+          username: pdbadmin
+          password: ${{secrets.password}}
     # password: # optional
     # # *required* The JDBC database connection URL
     # # Username to use to connect to the database
