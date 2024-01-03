@@ -5,7 +5,7 @@ databaseChangeLog:
       changes:
         - sqlFile:
             relativeToChangelogFile: true
-            path: ../scripts/pdbadmin/plsql/1_PKG_TIENDAVIRTUAL_SEGURIDAD.scp
+            path: ../scripts/pdbamin/plsql/1_PKG_TIENDAVIRTUAL_SEGURIDAD.spc
             encoding: "UTF-8"
             dbms: "oracle"
             endDelimiter: /
