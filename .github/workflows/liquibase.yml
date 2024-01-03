@@ -29,10 +29,11 @@ jobs:
         uses: liquibase-github-actions/validate@v4.25.1
         with:
           changelogFile: changelog.yaml
+          defaultsFile: liquibase.properties
           # driverPropertiesFile: liquibase.properties
-          url: jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb
-          username: pdbadmin
-          password: Admin12345
+          # url: jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb
+          # username: pdbadmin
+          # password: Admin12345
     # password: # optional
     # # *required* The JDBC database connection URL
     # # Username to use to connect to the database
