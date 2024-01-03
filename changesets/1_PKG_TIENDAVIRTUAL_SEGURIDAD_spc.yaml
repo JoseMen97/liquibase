@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: "vActions_1"
+      author: "Jose"
+      changes:
+        - sqlFile:
+            relativeToChangelogFile: true
+            path: ../scripts/pdbadmin/plsql/1_PKG_TIENDAVIRTUAL_SEGURIDAD.scp
+            encoding: "UTF-8"
+            dbms: "oracle"
+            endDelimiter: /
+            splitStatemets: true
