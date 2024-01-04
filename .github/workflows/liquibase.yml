@@ -26,7 +26,7 @@ jobs:
         with:
           changelogFile: "changelog.yaml"
           url: "jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb"
-          username: "pdbadmin"
+          username: "FO"
           password: ${{secrets.password}}
 
       - name: Liquibase Status Action
@@ -34,7 +34,7 @@ jobs:
         with:
           changelogFile: "changelog.yaml"
           url: "jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb"
-          username: "pdbadmin"
+          username: "FO"
           password: ${{secrets.password}}
 
       - name: Liquibase Update Sql Action
@@ -42,12 +42,12 @@ jobs:
         with:
           changelogFile: "changelog.yaml"
           url: "jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb"
-          username: "pdbadmin"
+          username: "FO"
           password: ${{secrets.password}}
       - name: Liquibase Update Action
         uses: liquibase-github-actions/update@v4.25.1
         with:
           changelogFile: "changelog.yaml"
           url: "jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb"
-          username: "pdbadmin"
+          username: "FO"
           password: ${{secrets.password}}
