@@ -11,6 +11,4 @@ jobs:
 
     steps:
     - name: Obtener nombre de la rama
-      run: |
-        NOMBRE_DE_LA_RAMA = $(echo "${{ github.event.ref }}" | cut -d'/' -f3)
-        echo "Nombre de la Rama: $NOMBRE_DE_LA_RAMA"
+      run: echo "Nombre de la Rama ${{ github.event.ref }}"
