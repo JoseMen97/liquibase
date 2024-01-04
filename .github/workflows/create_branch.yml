@@ -10,5 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Imprimir mensaje
-      run: echo "Se creó una nueva rama."
+    - name: Obtener nombre de la rama
+      env:
+        NOMBRE_DE_LA_RAMA: $(echo "${{ github.event.ref }}" | cut -d'/' -f3)
+      run: |
+        echo "Nombre de la Rama: ${{env.NOMBRE_DE_LA_RAMA}}"
