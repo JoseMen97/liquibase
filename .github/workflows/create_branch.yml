@@ -35,4 +35,4 @@ jobs:
         git checkout -b $NUEVA_RAMA
 
         # Empujar la nueva rama al repositorio
-        git push origin $NUEVA_RAMA
+        # git push origin $NUEVA_RAMA
