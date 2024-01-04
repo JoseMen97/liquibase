@@ -1,4 +1,4 @@
-name: Flujo al Crear Rama
+name: Create Branch
 run-name: Create Branch
 on:
   create:
@@ -11,4 +11,23 @@ jobs:
 
     steps:
     - name: Obtener nombre de la rama
-      run: echo "Nombre de la Rama ${{ github.event.ref }}"
+      run: |
+        # Nombre de la nueva rama
+        NOMBRE_DE_LA_RAMA="${{ github.event.ref }}"
+        
+        echo "Nombre de la Rama: $NOMBRE_DE_LA_RAMA"
+
+    # - name: Crear Rama
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+    #   run: |
+    #     # Clonar el repositorio
+    #     git clone https://github.com/${{ github.repository }}.git
+    #     cd ${{ github.repository }}
+
+    #     # Crear la nueva rama
+    #     NUEVA_RAMA="${{ NOMBRE_DE_LA_RAMA }}_base"
+    #     git checkout -b $NUEVA_RAMA
+
+    #     # Empujar la nueva rama al repositorio
+    #     git push origin $NUEVA_RAMA
