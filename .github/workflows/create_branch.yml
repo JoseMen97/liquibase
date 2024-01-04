@@ -17,16 +17,17 @@ jobs:
         
         echo "Nombre de la Rama: $NOMBRE_DE_LA_RAMA"
 
-    # - name: Crear Rama
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-    #   run: |
-    #     # Clonar el repositorio
-    #     git clone https://github.com/${{ github.repository }}.git
-    #     cd ${{ github.repository }}
+    - name: Crear Rama
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+      run: |
+        # Clonar el repositorio
+        git clone https://github.com/${{ github.repository }}.git
+        cd ${{ github.repository }}
 
-    #     # Crear la nueva rama
-    #     NUEVA_RAMA="${{ NOMBRE_DE_LA_RAMA }}_base"
+        # Crear la nueva rama
+        NUEVA_RAMA="${{ NOMBRE_DE_LA_RAMA }}_base"
+        echo "Nombre de la Rama: $NUEVA_RAMA"
     #     git checkout -b $NUEVA_RAMA
 
     #     # Empujar la nueva rama al repositorio
