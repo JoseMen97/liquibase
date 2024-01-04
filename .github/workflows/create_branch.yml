@@ -1,0 +1,14 @@
+name: Flujo al Crear Rama
+run-name: Create Branch
+on:
+  create:
+    branches:
+      - '*'
+
+jobs:
+  create_branch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Imprimir mensaje
+      run: echo "Se creó una nueva rama."
