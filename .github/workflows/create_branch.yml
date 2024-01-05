@@ -37,4 +37,5 @@ jobs:
 
         # Empujar la nueva rama al repositorio
         git remote -v
+        git branch
         # git push origin $NUEVA_RAMA
