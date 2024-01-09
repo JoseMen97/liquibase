@@ -9,44 +9,47 @@ jobs:
   create_branch:
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Obtener información de la rama
-      run: |
-        # Obtener el nombre de la rama creada
-        NOMBRE_DE_LA_RAMA_CREADA="${{ github.ref }}"
-        echo "Nombre de la Rama Creada: $NOMBRE_DE_LA_RAMA_CREADA"
-
-        # Obtener la rama desde la que se creó
-        RUTA_ORIGEN=$(echo "${{ github.event.ref }}" | cut -d'/' -f3)
-        echo "Rama Origen: $RUTA_ORIGEN"
-    # env:
-    #   # Nombre de la nueva rama
-    #   NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
     # steps:
-    # - name: Obtener nombre de la rama
+    # - name: Obtener información de la rama
     #   run: |
-    #     echo "Nombre de la Rama: ${{ env.NOMBRE_DE_LA_RAMA }}"
+    #     # Obtener el nombre de la rama creada
+    #     NOMBRE_DE_LA_RAMA_CREADA="${{ github.ref }}"
+    #     echo "Nombre de la Rama Creada: $NOMBRE_DE_LA_RAMA_CREADA"
 
-    # - name: Crear Rama
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-    #   run: |
-    #     # Clonar el repositorio
-    #     git clone https://github.com/${{ github.repository }}.git
-        
-    #     cadena="${{ github.repository }}"
-    #     nombre_repositorio=$(basename "$cadena")
-        
-    #     cd $nombre_repositorio
-    #     ls -la
-        
-    #     # Crear la nueva rama
-    #     NUEVA_RAMA="${{ env.NOMBRE_DE_LA_RAMA }}_base"
+    #     # Obtener la rama desde la que se creó
+    #     RUTA_ORIGEN=$(echo "${{ github.event.ref }}" | cut -d'/' -f3)
+    #     echo "Rama Origen: $RUTA_ORIGEN"
 
-    #     echo "Nombre de la Rama: $NUEVA_RAMA"
-    #     git checkout -b $NUEVA_RAMA
+    # -------------------------------------------
+    
+    env:
+      # Nombre de la nueva rama
+      NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
+    steps:
+    - name: Obtener nombre de la rama
+      run: |
+        echo "Nombre de la Rama: ${{ env.NOMBRE_DE_LA_RAMA }}"
 
-    #     # Empujar la nueva rama al repositorio
-    #     git remote -v
-    #     git branch
+    - name: Crear Rama
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+      run: |
+        # Clonar el repositorio
+        git clone https://github.com/${{ github.repository }}.git
+        
+        cadena="${{ github.repository }}"
+        nombre_repositorio=$(basename "$cadena")
+        
+        cd $nombre_repositorio
+        ls -la
+        
+        # Crear la nueva rama
+        NUEVA_RAMA="${{ env.NOMBRE_DE_LA_RAMA }}_base"
+
+        echo "Nombre de la Rama: $NUEVA_RAMA"
+        git checkout -b $NUEVA_RAMA
+
+        # Empujar la nueva rama al repositorio
+        git remote -v
+        git branch
     #     # git push origin $NUEVA_RAMA
