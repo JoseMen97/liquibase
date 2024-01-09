@@ -38,7 +38,7 @@ jobs:
         
         git clone https://github.com/${{ github.repository }}.git
         # git checkout -b $NOMBRE_DE_LA_RAMA
-        # git branch
+        git branch
         
         cadena="${{ github.repository }}"
         nombre_repositorio=$(basename "$cadena")
