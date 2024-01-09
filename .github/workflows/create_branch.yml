@@ -10,19 +10,6 @@ on:
 jobs:
   create_branch:
     runs-on: ubuntu-latest
-
-    # steps:
-    # - name: Obtener información de la rama
-    #   run: |
-    #     # Obtener el nombre de la rama creada
-    #     NOMBRE_DE_LA_RAMA_CREADA="${{ github.ref }}"
-    #     echo "Nombre de la Rama Creada: $NOMBRE_DE_LA_RAMA_CREADA"
-
-    #     # Obtener la rama desde la que se creó
-    #     RUTA_ORIGEN=$(echo "${{ github.event.ref }}" | cut -d'/' -f3)
-    #     echo "Rama Origen: $RUTA_ORIGEN"
-
-    # -------------------------------------------
     
     env:
       # Nombre de la nueva rama
