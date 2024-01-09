@@ -18,6 +18,8 @@ jobs:
     steps:
     - name: Revision path action
       run: |
+        echo "Nombre de la rama ${{ github.event.ref }}"
+        echo "Nombre de la rama ${{ github.ref }}"
         echo "Nombre del path del action ${{ github.action_path }}"
         
     - name: Validacion de ramas
