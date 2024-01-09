@@ -55,6 +55,7 @@ jobs:
     - name: Subir nueva rama
       run: |
         # Empujar la nueva rama al repositorio
+        ls -la
         cd ${{ env.NOMBRE_REPOSITORIO }}
 
         git push origin "${{ env.NOMBRE_DE_LA_RAMA }}_base"
