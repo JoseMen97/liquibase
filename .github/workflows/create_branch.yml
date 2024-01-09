@@ -25,6 +25,8 @@ jobs:
     env:
       # Nombre de la nueva rama
       NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
+      NOMBRE_REPOSITORIO: $(basename "${{ github.repository }}")
+      
     steps:
     - name: Obtener nombre de la rama
       run: |
@@ -38,12 +40,16 @@ jobs:
         
         git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
         
-        cadena="${{ github.repository }}"
-        nombre_repositorio=$(basename "$cadena")
+        # cadena="${{ github.repository }}"
+        # nombre_repositorio=$(basename "$cadena")
         
-        cd $nombre_repositorio
-
+        cd ${{ env.NOMBRE_REPOSITORIO }}
+        
+    - name: Crear la nueva rama
+      run: |
         # Crear la nueva rama
+        cd ${{ env.NOMBRE_REPOSITORIO }}
+        
         NUEVA_RAMA="${{ env.NOMBRE_DE_LA_RAMA }}_base"
         echo "Nombre de la Rama: $NUEVA_RAMA"
 
