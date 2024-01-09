@@ -27,7 +27,9 @@ jobs:
       uses: actions/checkout@v4.1.1
     
     - name: listar
-      run: ls -la
+      run: |
+        ls -la
+        git branch
       # run: |
       #   # Clonar el repositorio    
       #   git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
