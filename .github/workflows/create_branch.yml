@@ -35,9 +35,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       run: |
         # Clonar el repositorio
+        
         git clone https://github.com/${{ github.repository }}.git
-        git checkout -b $NOMBRE_DE_LA_RAMA
-        git branch
+        # git checkout -b $NOMBRE_DE_LA_RAMA
+        # git branch
         
         cadena="${{ github.repository }}"
         nombre_repositorio=$(basename "$cadena")
