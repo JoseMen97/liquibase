@@ -56,15 +56,8 @@ jobs:
       run: |
         # Empujar la nueva rama al repositorio
         cd ${{ env.NOMBRE_REPOSITORIO }}
-        ls -la
-        git branch
+        
         git config --global user.name "JoseMen97"
         git config --global user.email "jlms0197@gmail.com"
         
-        git config --list
-        
-        NUEVA_RAMA="${{ env.NOMBRE_DE_LA_RAMA }}_base"
-        echo "Nombre de la Rama: $NUEVA_RAMA"
-
-        git remote -v 
         # git push https://${{ env.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
