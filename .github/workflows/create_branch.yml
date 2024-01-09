@@ -55,13 +55,13 @@ jobs:
 
         # Checkout a nueva rama
         git checkout -b $NUEVA_RAMA
-        git branch
-        ls -la
 
     - name: Subir nueva rama
       run: |
         # Empujar la nueva rama al repositorio
+        cd ${{ env.NOMBRE_REPOSITORIO }}
+
         ls -la
-        # git remote -v
-        # git branch
+        git remote -v
+        git branch
         # git push origin $NUEVA_RAMA
