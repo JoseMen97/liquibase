@@ -57,7 +57,7 @@ jobs:
         ls -la
         git branch
         git config --global user.name "JoseMen97"
-        git config --global user.name "jlms0197@gmail.com"
+        git config --global user.email "jlms0197@gmail.com"
         
         git config --list
         
