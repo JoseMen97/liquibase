@@ -64,5 +64,4 @@ jobs:
         NUEVA_RAMA="${{ env.NOMBRE_DE_LA_RAMA }}_base"
         echo "Nombre de la Rama: $NUEVA_RAMA"
         
-        # git push origin branch_test_base -u ${{ env.GITHUB_TOKEN }}
-        git push origin branch_test_base
+        git push origin branch_test_base -u ${{ env.GITHUB_TOKEN }}
