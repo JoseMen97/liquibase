@@ -23,6 +23,15 @@ jobs:
         echo "Nombre de la url ${{ github.url }}"
         echo "Nombre del path del action ${{ github.action_path }}"
         
+    - name: Crear Rama
+      uses: actions/checkout@v4.1.1
+    
+    - name: listar
+      run: ls -la
+      # run: |
+      #   # Clonar el repositorio    
+      #   git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
+      #   cd ${{ env.NOMBRE_REPOSITORIO }}   
     - name: Validacion de ramas
       run: |
         echo "La condición no se cumplió. Generando un fallo."
