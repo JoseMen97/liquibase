@@ -26,7 +26,7 @@ jobs:
       # Nombre de la nueva rama
       NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
       NOMBRE_REPOSITORIO: $(basename "${{ github.repository }}")
-      # NUEVA_RAMA: "${{ env.NOMBRE_DE_LA_RAMA }}_base"
+      GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       
     steps:
     - name: Obtener nombre de la rama
@@ -34,8 +34,6 @@ jobs:
         echo "Nombre de la Rama: ${{ env.NOMBRE_DE_LA_RAMA }}"
 
     - name: Crear Rama
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       run: |
         # Clonar el repositorio    
         git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
@@ -58,4 +56,4 @@ jobs:
         ls -la
         cd ${{ env.NOMBRE_REPOSITORIO }}
 
-        git push origin "${{ env.NOMBRE_DE_LA_RAMA }}_base"
+        git push origin "${{ env.NOMBRE_DE_LA_RAMA }}_base" -u ${{ env.GITHUB_TOKEN }}
