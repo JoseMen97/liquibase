@@ -3,7 +3,9 @@ run-name: Create Branch
 on:
   create:
     branches:
-      - '*'
+      - main
+      - develop
+      - release
 
 jobs:
   create_branch:
