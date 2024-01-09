@@ -26,7 +26,7 @@ jobs:
       # Nombre de la nueva rama
       NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
       NOMBRE_REPOSITORIO: $(basename "${{ github.repository }}")
-      NUEVA_RAMA: "${{ env.NOMBRE_DE_LA_RAMA}}_base"
+      NUEVA_RAMA: "${{ env.NOMBRE_DE_LA_RAMA }}_base"
       
     steps:
     - name: Obtener nombre de la rama
