@@ -20,6 +20,7 @@ jobs:
       run: |
         echo "Nombre de la rama ${{ github.event.ref }}"
         echo "Nombre de la rama ${{ github.ref }}"
+        echo "Nombre de la url ${{ github.url }}"
         echo "Nombre del path del action ${{ github.action_path }}"
         
     - name: Validacion de ramas
