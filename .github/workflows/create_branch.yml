@@ -3,7 +3,7 @@ run-name: Create Branch
 on:
   create:
     branches:
-      - feature/*
+      - 'feature/*'
 
 jobs:
   create_branch:
@@ -16,10 +16,14 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       
     steps:
+    - name: Revision path action
+      run: |
+        echo "Nombre del path del action ${{ github.action_path }}"
+        
     - name: Validacion de ramas
       run: |
-          echo "La condición no se cumplió. Generando un fallo."
-          exit 1
+        echo "La condición no se cumplió. Generando un fallo."
+        exit 1
       if: ${{ github.ref != 'refs/heads/master' }} && ${{ github.ref != 'refs/heads/develop' }} && ${{ github.ref != 'refs/heads/release' }}
       
     - name: Obtener nombre de la rama
