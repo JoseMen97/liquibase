@@ -56,7 +56,7 @@ jobs:
         cd ${{ env.NOMBRE_REPOSITORIO }}
         ls -la
         git branch
-        
+        git config --list
         NUEVA_RAMA="${{ env.NOMBRE_DE_LA_RAMA }}_base"
         echo "Nombre de la Rama: $NUEVA_RAMA"
         
