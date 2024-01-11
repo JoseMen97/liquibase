@@ -9,37 +9,54 @@ jobs:
   create_branch:
     runs-on: ubuntu-latest
     
-    env:
-      # Nombre de la nueva rama
-      NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
-      NOMBRE_REPOSITORIO: $(basename "${{ github.repository }}")
-      GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-      
     steps:
-    - name: Revision path action
-      run: echo "${{ toJson(github) }}"
-        
-    - name: Crear Rama
-      uses: actions/checkout@v4.1.1
-    
-    - name: listar
+    - name: Checkout del código
+      uses: actions/checkout@v2
+
+    - name: Detectar Creación de Rama
       run: |
-        ls -la
-        git branch
-      # run: |
-      #   # Clonar el repositorio    
-      #   git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
-      #   cd ${{ env.NOMBRE_REPOSITORIO }}   
-    - name: Validacion de ramas
-      run: |
-        echo "La condición no se cumplió. Generando un fallo."
-        exit 1
-      if: ${{ github.ref != 'refs/heads/master' }} && ${{ github.ref != 'refs/heads/develop' }} && ${{ github.ref != 'refs/heads/release' }}
+        if [[ "${{ github.event_name }}" == "create" && "${{ github.event.ref_type }}" == "branch" ]]; then
+          echo "La rama ${GITHUB_REF#refs/heads/} fue creada."
+
+          if [ -n "${{ github.event.before }}" ]; then
+            echo "Fue creada desde la rama ${GITHUB_REF#refs/heads/} (commit anterior: ${github.event.before})."
+          else
+            echo "No hay información disponible sobre la rama desde la que se creó."
+          fi
+        else
+          echo "No se detectó una creación de rama."
+        fi
+    # env:
+    #   # Nombre de la nueva rama
+    #   NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
+    #   NOMBRE_REPOSITORIO: $(basename "${{ github.repository }}")
+    #   GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       
-    - name: Obtener nombre de la rama
-      run: |
-        echo "Nombre de la Rama: ${{ env.NOMBRE_DE_LA_RAMA }}"
-      if: success()
+    # steps:
+    # - name: Revision path action
+    #   run: echo "${{ toJson(github) }}"
+        
+    # - name: Crear Rama
+    #   uses: actions/checkout@v4.1.1
+    
+    # - name: listar
+    #   run: |
+    #     ls -la
+    #     git branch
+    #   # run: |
+    #   #   # Clonar el repositorio    
+    #   #   git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
+    #   #   cd ${{ env.NOMBRE_REPOSITORIO }}   
+    # - name: Validacion de ramas
+    #   run: |
+    #     echo "La condición no se cumplió. Generando un fallo."
+    #     exit 1
+    #   if: ${{ github.ref != 'refs/heads/master' }} && ${{ github.ref != 'refs/heads/develop' }} && ${{ github.ref != 'refs/heads/release' }}
+      
+    # - name: Obtener nombre de la rama
+    #   run: |
+    #     echo "Nombre de la Rama: ${{ env.NOMBRE_DE_LA_RAMA }}"
+    #   if: success()
 
     # - name: Crear Rama
     #   run: |
