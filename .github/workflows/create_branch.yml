@@ -34,7 +34,7 @@ jobs:
 
     - name: listar
       run: |
-        echo "git branch"
+        git branch
         echo "ls -la"
         
     # - name: Crear la nueva rama
