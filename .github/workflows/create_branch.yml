@@ -16,7 +16,7 @@ jobs:
     - name: Detectar Creación de Rama
       run: |
         echo "${{github.sha}}"
-        commit_sha="tu_sha_a_verificar"
+        commit_sha="${{github.sha}}"
         ramas_contenedoras=$(git branch --contains $commit_sha)
 
         echo "El SHA $commit_sha se encuentra en las siguientes ramas:"
