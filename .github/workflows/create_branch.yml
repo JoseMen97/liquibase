@@ -8,8 +8,16 @@ on:
 jobs:
   create_branch:
     runs-on: ubuntu-latest
+
     
     steps:
+    - name: clone master
+      run: |
+        # Clonar el repositorio    
+        git clone https://github.com/${{ github.repository }}.git
+        cd ${{ github.event.repository.name }}
+        echo "${{github.sha}}"
+        
     - name: Checkout del código
       uses: actions/checkout@v4.1.1
 
