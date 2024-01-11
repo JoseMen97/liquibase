@@ -28,13 +28,8 @@ jobs:
       if: success()
 
     - name: Crear la nueva rama
-      uses: actions/checkout@v4.1.1
-      with:
-        ref: "clone_${{ env.NOMBRE_DE_LA_RAMA }}"
-      # run: |
-      #   # Clonar el repositorio    
-      #   git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
-      #   cd ${{ env.NOMBRE_REPOSITORIO }}
+      run: |
+        git checkout -b "clone_${{ env.NOMBRE_DE_LA_RAMA }}"
       if: success()
 
     - name: listar
