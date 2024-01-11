@@ -19,9 +19,9 @@ jobs:
     
     - name: Detectar Creación de Rama
       run: |
-        echo "La rama creada no comienza con el texto clone_"
+        echo "La rama creada comienza con el texto clone_"
         exit 1
-      if: ${{ ! startsWith(github.event.ref, 'clone_') }}
+      if: ${{ startsWith(github.event.ref, 'clone_') }}
       
       # run: |
       #   branch_name="${{ github.event.ref }}"
