@@ -16,17 +16,25 @@ jobs:
     - name: Detectar Creación de Rama
       run: |
         echo "${{github.sha}}"
-        if [[ "${{ github.event_name }}" == "create" && "${{ github.event.ref_type }}" == "branch" ]]; then
-          echo "La rama ${GITHUB_REF#refs/heads/} fue creada."
+        commit_sha="tu_sha_a_verificar"
+        ramas_contenedoras=$(git branch --contains $commit_sha)
 
-          if [ -n "${{ github.event.before }}" ]; then
-            echo "Fue creada desde la rama ${GITHUB_REF#refs/heads/} (commit anterior: ${github.event.before})."
-          else
-            echo "No hay información disponible sobre la rama desde la que se creó."
-          fi
-        else
-          echo "No se detectó una creación de rama."
-        fi
+        echo "El SHA $commit_sha se encuentra en las siguientes ramas:"
+        echo "$ramas_contenedoras"
+        
+        # if [[ "${{ github.event_name }}" == "create" && "${{ github.event.ref_type }}" == "branch" ]]; then
+        #   echo "La rama ${GITHUB_REF#refs/heads/} fue creada."
+
+        #   if [ -n "${{ github.event.before }}" ]; then
+        #     echo "Fue creada desde la rama ${GITHUB_REF#refs/heads/} (commit anterior: ${github.event.before})."
+        #   else
+        #     echo "No hay información disponible sobre la rama desde la que se creó."
+        #   fi
+        # else
+        #   echo "No se detectó una creación de rama."
+        # fi
+
+        
     # env:
     #   # Nombre de la nueva rama
     #   NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
