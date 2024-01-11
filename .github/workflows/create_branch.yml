@@ -3,7 +3,7 @@ run-name: Create Branch
 on:
   create:
     branches:
-      - '*'
+      - 'feature/*'
 
 jobs:
   create_branch:
