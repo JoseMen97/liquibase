@@ -34,7 +34,7 @@ jobs:
 
     - name: Push de la nueva rama
       run: |
-        git push origin "clone_${{ env.NOMBRE_DE_LA_RAMA }}"
+        git push origin "clone_${{ env.NOMBRE_DE_LA_RAMA }}" -u ${{ env.GITHUB_TOKEN }}
         
         # cd ${{ env.NOMBRE_REPOSITORIO }}
         
