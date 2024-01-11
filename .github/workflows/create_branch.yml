@@ -36,8 +36,12 @@ jobs:
       run: |
         ls -la
         
+        git config --global --unset gc.auto
+        git config --global --unset http.https://github.com/.extraheader
+
         git config --global user.name "JoseMen97"
         git config --global user.email "jlms0197@gmail.com"
+        
         git config --list
         
         # git push origin "clone_${{ env.NOMBRE_DE_LA_RAMA }}" -u ${{ env.GITHUB_TOKEN }}
