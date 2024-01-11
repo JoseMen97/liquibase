@@ -36,10 +36,9 @@ jobs:
       run: |
         git config --unset gc.auto
         git config --unset http.https://github.com/.extraheader
-        git remote set-url origin https://github.com/${{ github.repository }}.git
+        
         git config --global user.name "jlms0197"
         git config --global user.email "jlms0197@gmail.com"
         
-        git push --set-upstream origin
-        # git push https://${{ env.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+        git push https://${{ env.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
       if: success()
