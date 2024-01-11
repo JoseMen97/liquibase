@@ -11,32 +11,11 @@ jobs:
 
     
     steps:
-    - name: clone master
-      run: |
-        # Clonar el repositorio    
-        git clone https://github.com/${{ github.repository }}.git
-        cd ${{ github.event.repository.name }}
-        
-        echo "${{github.sha}}"
-        commit_sha="${{github.sha}}"
-        ramas_contenedoras=$(git branch --contains $commit_sha)
-
-        echo "El SHA $commit_sha se encuentra en las siguientes ramas:"
-        echo "$ramas_contenedoras"
-
-        
-    - name: Checkout del código
-      uses: actions/checkout@v4.1.1
-
+    
     - name: Detectar Creación de Rama
       run: |
-        echo "${{github.sha}}"
-        commit_sha="${{github.sha}}"
-        ramas_contenedoras=$(git branch --contains $commit_sha)
-
-        echo "El SHA $commit_sha se encuentra en las siguientes ramas:"
-        echo "$ramas_contenedoras"
-        
+        startBranch = startsWith(github.even.name,'clone_')
+        echo "$startBranch"
         # if [[ "${{ github.event_name }}" == "create" && "${{ github.event.ref_type }}" == "branch" ]]; then
         #   echo "La rama ${GITHUB_REF#refs/heads/} fue creada."
 
@@ -48,6 +27,9 @@ jobs:
         # else
         #   echo "No se detectó una creación de rama."
         # fi
+    
+    - name: Checkout del código
+      uses: actions/checkout@v4.1.1
 
         
     # env:
