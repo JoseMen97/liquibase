@@ -16,7 +16,14 @@ jobs:
         # Clonar el repositorio    
         git clone https://github.com/${{ github.repository }}.git
         cd ${{ github.event.repository.name }}
+        
         echo "${{github.sha}}"
+        commit_sha="${{github.sha}}"
+        ramas_contenedoras=$(git branch --contains $commit_sha)
+
+        echo "El SHA $commit_sha se encuentra en las siguientes ramas:"
+        echo "$ramas_contenedoras"
+
         
     - name: Checkout del código
       uses: actions/checkout@v4.1.1
