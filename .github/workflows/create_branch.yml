@@ -36,8 +36,8 @@ jobs:
       run: |
         ls -la
         
-        git config --global --unset gc.auto
-        git config --global --unset http.https://github.com/.extraheader
+        git config --unset gc.auto
+        git config --unset http.https://github.com/.extraheader
 
         git config --global user.name "JoseMen97"
         git config --global user.email "jlms0197@gmail.com"
