@@ -34,12 +34,12 @@ jobs:
 
     - name: Push de la nueva rama
       run: |
-        # git push origin "clone_${{ env.NOMBRE_DE_LA_RAMA }}" -u ${{ env.GITHUB_TOKEN }}
+        ls -la
         
-        # cd ${{ env.NOMBRE_REPOSITORIO }}
-        git config --global --list
+        git config --list
         git config --global user.name "JoseMen97"
         git config --global user.email "jlms0197@gmail.com"
         
+        # git push origin "clone_${{ env.NOMBRE_DE_LA_RAMA }}" -u ${{ env.GITHUB_TOKEN }}
         # git push https://${{ env.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
       if: success()
