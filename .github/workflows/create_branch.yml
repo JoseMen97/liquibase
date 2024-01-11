@@ -8,47 +8,33 @@ on:
 jobs:
   create_branch:
     runs-on: ubuntu-latest
-
     
-    steps:
-    
-    - name: Detectar Creación de Rama
-      run: |
-        branch_name="${{ github.event.ref }}"
-        
-        if [[ "${branch_name}" =~ ^clone_ ]]; then
-          echo "La rama ${branch_name} comienza con 'clone_'."
-        else
-          echo "La rama ${branch_name} no comienza con 'clone_'."
-        fi
-        # if [[ "${{ github.event_name }}" == "create" && "${{ github.event.ref_type }}" == "branch" ]]; then
-        #   echo "La rama ${GITHUB_REF#refs/heads/} fue creada."
-
-        #   if [ -n "${{ github.event.before }}" ]; then
-        #     echo "Fue creada desde la rama ${GITHUB_REF#refs/heads/} (commit anterior: ${github.event.before})."
-        #   else
-        #     echo "No hay información disponible sobre la rama desde la que se creó."
-        #   fi
-        # else
-        #   echo "No se detectó una creación de rama."
-        # fi
-    
-    - name: Checkout del código
-      uses: actions/checkout@v4.1.1
-
-        
     # env:
     #   # Nombre de la nueva rama
     #   NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
     #   NOMBRE_REPOSITORIO: $(basename "${{ github.repository }}")
     #   GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+    
+    steps:
+    
+    - name: Detectar Creación de Rama
+      run: |
+        echo "La rama creada no comienza con el texto clone_"
+        exit 1
+      if: ${{ ! startsWith(github.event.ref, 'clone_') }}
       
-    # steps:
-    # - name: Revision path action
-    #   run: echo "${{ toJson(github) }}"
+      # run: |
+      #   branch_name="${{ github.event.ref }}"
         
-    # - name: Crear Rama
-    #   uses: actions/checkout@v4.1.1
+      #   if [[ "${branch_name}" =~ ^clone_ ]]; then
+      #     echo "La rama ${branch_name} comienza con 'clone_'."
+      #   else
+      #     echo "La rama ${branch_name} no comienza con 'clone_'."
+      #   fi
+    
+    - name: Checkout del código
+      uses: actions/checkout@v4.1.1
+      if: success()
     
     # - name: listar
     #   run: |
