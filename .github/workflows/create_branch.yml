@@ -39,9 +39,8 @@ jobs:
         git remote set-url origin https://github.com/${{ github.repository }}.git
         git config --global user.name "jlms0197"
         git config --global user.email "jlms0197@gmail.com"
-
-        git config --list
-        git remote -v
-        git push origin "clone_${{ env.NOMBRE_DE_LA_RAMA }}"
+        
+        git remote get-url origin
+        git push origin
         # git push https://${{ env.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
       if: success()
