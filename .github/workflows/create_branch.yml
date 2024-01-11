@@ -9,11 +9,11 @@ jobs:
   create_branch:
     runs-on: ubuntu-latest
     
-    # env:
-    #   # Nombre de la nueva rama
-    #   NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
-    #   NOMBRE_REPOSITORIO: $(basename "${{ github.repository }}")
-    #   GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+    env:
+      # Nombre de la nueva rama
+      NOMBRE_DE_LA_RAMA: "${{ github.event.ref }}"
+      NOMBRE_REPOSITORIO: "${{ github.event.repository.name }}"
+      GITHUB_TOKEN: "${{ secrets.TOKEN_GITHUB }}"
     
     steps:
     
@@ -22,44 +22,25 @@ jobs:
         echo "La rama creada comienza con el texto clone_"
         exit 1
       if: ${{ startsWith(github.event.ref, 'clone_') }}
-      
-      # run: |
-      #   branch_name="${{ github.event.ref }}"
-        
-      #   if [[ "${branch_name}" =~ ^clone_ ]]; then
-      #     echo "La rama ${branch_name} comienza con 'clone_'."
-      #   else
-      #     echo "La rama ${branch_name} no comienza con 'clone_'."
-      #   fi
     
     - name: Checkout del código
       uses: actions/checkout@v4.1.1
       if: success()
-    
-    # - name: listar
-    #   run: |
-    #     ls -la
-    #     git branch
-    #   # run: |
-    #   #   # Clonar el repositorio    
-    #   #   git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
-    #   #   cd ${{ env.NOMBRE_REPOSITORIO }}   
-    # - name: Validacion de ramas
-    #   run: |
-    #     echo "La condición no se cumplió. Generando un fallo."
-    #     exit 1
-    #   if: ${{ github.ref != 'refs/heads/master' }} && ${{ github.ref != 'refs/heads/develop' }} && ${{ github.ref != 'refs/heads/release' }}
-      
-    # - name: Obtener nombre de la rama
-    #   run: |
-    #     echo "Nombre de la Rama: ${{ env.NOMBRE_DE_LA_RAMA }}"
-    #   if: success()
 
-    # - name: Crear Rama
-    #   run: |
-    #     # Clonar el repositorio    
-    #     git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
-    #     cd ${{ env.NOMBRE_REPOSITORIO }}
+    - name: Crear la nueva rama
+      uses: actions/checkout@v4.1.1
+      with:
+        ref: "clone_${{ env.NOMBRE_DE_LA_RAMA }}"
+      # run: |
+      #   # Clonar el repositorio    
+      #   git clone -b ${{ env.NOMBRE_DE_LA_RAMA}} https://github.com/${{ github.repository }}.git
+      #   cd ${{ env.NOMBRE_REPOSITORIO }}
+      if: success()
+
+    - name: listar
+      run: |
+        echo "git branch"
+        echo "ls -la"
         
     # - name: Crear la nueva rama
     #   run: |
