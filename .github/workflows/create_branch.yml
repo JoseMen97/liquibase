@@ -34,8 +34,6 @@ jobs:
 
     - name: Push de la nueva rama
       run: |
-        ls -la
-        
         git config --unset gc.auto
         git config --unset http.https://github.com/.extraheader
 
@@ -44,6 +42,6 @@ jobs:
         
         git config --list
         
-        # git push origin "clone_${{ env.NOMBRE_DE_LA_RAMA }}" -u ${{ env.GITHUB_TOKEN }}
+        git push origin "clone_${{ env.NOMBRE_DE_LA_RAMA }}"
         # git push https://${{ env.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
       if: success()
