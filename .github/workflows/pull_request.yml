@@ -36,13 +36,13 @@ jobs:
           # Path to the file to read from
           from-file: changeset_base.yaml
           # The input data as JSON string
-          data: databaseChangeLog.changeSet[0].changes[0].path = ${{ steps.valid_changes.outputs.diff_output }}
+          # data: databaseChangeLog.changeSet[0].changes[0].path = ${{ steps.valid_changes.outputs.diff_output }}
           # Path to the file to write to
           to-file: changesets/changeset1.yaml
           # Recursively merge the given data with the input data
           # merge: # optional
           # # Overwrite the input data at the given paths with the given data
-          # set: # optional
+          set: databaseChangeLog.changeSet[0].changes[0].path = ${{ steps.valid_changes.outputs.diff_output }}
       - name: listar
         run: ls -la changesets/*
 
