@@ -15,4 +15,7 @@ jobs:
         run: |
           echo "origin/${{ github.event.pull_request.base.ref }}"
           echo "${{ github.event.pull_request.head.ref }}"
+
+          git branch
+          
           # git diff "origin/${{ github.event.pull_request.base.ref }}" ${{ github.event.pull_request.head.ref }}
