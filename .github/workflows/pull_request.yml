@@ -2,6 +2,8 @@ name: pull_request
 run-name: Deteccion pull request
 on:
   pull_request
+  
+permissions: write-all
 
 jobs:
   detect_pullrequest:
@@ -9,12 +11,13 @@ jobs:
     
     steps:
       - name: checkout repositorio
-        run: git clone ${{ github.event.pull_request.base.repo.clone_url }}
+        uses: actions/checkout@v4.1.1
+        # run: git clone ${{ github.event.pull_request.base.repo.clone_url }}
         
       - name: Validar cambios
         id: valid_changes
         run: |
-          cd ${{ github.event.pull_request.base.repo.name }}
+          # cd ${{ github.event.pull_request.base.repo.name }}
           echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
           
       - name: list step
