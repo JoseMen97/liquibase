@@ -9,4 +9,4 @@ jobs:
     
     steps:
       - name: view event
-        run: echo "${{ toJson(github) }}"
+        run: echo "${{ toJson(github.event) }}"
