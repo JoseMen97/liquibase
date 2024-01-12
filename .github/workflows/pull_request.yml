@@ -18,8 +18,34 @@ jobs:
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
           echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
+
+      # - name: Setup Python
+      #   uses: actions/setup-python@v5.0.0
+      #   with:
+        
+      # - name: list step
+      #   run: |
+      #     archivos="${{ steps.valid_changes.outputs.diff_output }}"
+      #     echo $archivos
+      
+      - name: YAML Action
+      # You may pin to the exact commit or the version.
+      # uses: teunmooij/yaml@e8e341db5c2075d390d01bc800a508fddf554ff1
+        uses: teunmooij/yaml@v1.0.0
+        with:
+          # Path to the file to read from
+          from-file: chageser_base.yaml
+          # The input data as JSON string
+          data: databaseChangeLog.changeSet[0].changes[0].path = ${{ steps.valid_changes.outputs.diff_output }}
+          # Path to the file to write to
+          to-file: chagesets/changeset1.yaml
+          # Recursively merge the given data with the input data
+          # merge: # optional
+          # # Overwrite the input data at the given paths with the given data
+          # set: # optional
+      - name: listar
+        run: ls -la chagesets/*
+
+        
+
           
-      - name: list step
-        run: |
-          archivos="${{ steps.valid_changes.outputs.diff_output }}"
-          echo $archivos
