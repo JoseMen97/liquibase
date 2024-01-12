@@ -34,17 +34,17 @@ jobs:
         uses: teunmooij/yaml@v1.0.0
         with:
           # Path to the file to read from
-          from-file: chageser_base.yaml
+          from-file: changeset_base.yaml
           # The input data as JSON string
           data: databaseChangeLog.changeSet[0].changes[0].path = ${{ steps.valid_changes.outputs.diff_output }}
           # Path to the file to write to
-          to-file: chagesets/changeset1.yaml
+          to-file: changesets/changeset1.yaml
           # Recursively merge the given data with the input data
           # merge: # optional
           # # Overwrite the input data at the given paths with the given data
           # set: # optional
       - name: listar
-        run: ls -la chagesets/*
+        run: ls -la changesets/*
 
         
 
