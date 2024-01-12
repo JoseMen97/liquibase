@@ -28,7 +28,8 @@ jobs:
 
       - name: Modificar changeset
         run: |
-          python scripts/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog.changeSet[0].changes[0].path" "${{ steps.valid_changes.outputs.diff_output }}"
+          ls -la .github/scripts
+          python .github/scripts/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog.changeSet[0].changes[0].path" "${{ steps.valid_changes.outputs.diff_output }}"
   
           
 
