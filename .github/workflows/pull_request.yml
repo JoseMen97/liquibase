@@ -19,6 +19,4 @@ jobs:
           echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
           
       - name: list step
-        run: |
-          echo "${{ toJson(steps.valid_changes) }}"
-          echo "${{ steps.valid_changes.outputs.diff_output }}"
+        run: echo "${{ steps.valid_changes.outputs.diff_output }}"
