@@ -29,8 +29,7 @@ jobs:
       if: success()
 
     - name: Crear la nueva rama
-      run: |
-        git checkout -b "clone_${{ env.NOMBRE_DE_LA_RAMA }}"
+      run: git checkout -b "clone_${{ env.NOMBRE_DE_LA_RAMA }}"
       if: success()
 
     - name: Push de la nueva rama
