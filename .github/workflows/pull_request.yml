@@ -1,7 +1,8 @@
 name: pull_request
 run-name: Deteccion pull request
 on:
-  pull_request
+  pull_request:
+    types: [opened]
 
 jobs:
   detect_pullrequest:
@@ -9,4 +10,4 @@ jobs:
     
     steps:
       - name: view event
-        run: echo "${{ github }}"
+        run: echo "${{ toJson(github) }}"
