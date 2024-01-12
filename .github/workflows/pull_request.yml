@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: checkout repositorio
+        uses: actions/checkout@v4.1.1
+        
       - name: Validar cambios
         run: |
           git diff ${{ github.event.pull_request.base.ref }} ${{ github.event.pull_request.head.ref }}
