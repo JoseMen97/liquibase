@@ -24,10 +24,13 @@ jobs:
       #   with:
       
       - name: Instalar PyYAML
-        run: python -m pip install pyyaml
+        run: |
+          python -v
+          python -m pip install pyyaml
 
       - name: Modificar changeset
         run: |
+          cd ${{ github.event.pull_request.base.repo.name }}
           ls -la
           # ls -la .github/scripts
           # python .github/scripts/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog.changeSet[0].changes[0].path" "${{ steps.valid_changes.outputs.diff_output }}"
