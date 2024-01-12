@@ -16,12 +16,4 @@ jobs:
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
           
-          echo "origin/${{ github.event.pull_request.base.ref }}"
-          echo "${{ github.event.pull_request.head.ref }}"
-
-          git checkout ${{ github.event.pull_request.base.ref }}
-          git checkout ${{ github.event.pull_request.head.ref }}
-
-          git branch
-          
-          git diff ${{ github.event.pull_request.head.ref }} ${{ github.event.pull_request.base.ref }}
+          git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.base.ref }}" --name-only
