@@ -18,7 +18,7 @@ jobs:
         id: valid_changes
         run: |
           # cd ${{ github.event.pull_request.base.repo.name }}
-          echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}"..."origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
+          echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" -- "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
           
       - name: list step
         run: |
