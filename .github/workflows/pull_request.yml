@@ -16,5 +16,7 @@ jobs:
           echo "origin/${{ github.event.pull_request.base.ref }}"
           echo "${{ github.event.pull_request.head.ref }}"
 
-          ls -la
-          git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}"
+          git checkout ${{ github.event.pull_request.base.ref }}
+          git checkout ${{ github.event.pull_request.head.ref }}
+          
+          git diff ${{ github.event.pull_request.head.ref }} ${{ github.event.pull_request.base.ref }}
