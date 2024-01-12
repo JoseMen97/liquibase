@@ -9,10 +9,13 @@ jobs:
     
     steps:
       - name: checkout repositorio
-        uses: actions/checkout@v4.1.1
+        run: |
+          git clone ${{ github.event.pull_request.base.repo.clone_url }}
         
       - name: Validar cambios
         run: |
+          cd ${{ github.event.pull_request.base.repo.name }}
+          
           echo "origin/${{ github.event.pull_request.base.ref }}"
           echo "${{ github.event.pull_request.head.ref }}"
 
