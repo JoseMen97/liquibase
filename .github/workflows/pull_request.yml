@@ -25,7 +25,7 @@ jobs:
       
       - name: Instalar PyYAML
         run: |
-          python -v
+          python --version
           python -m pip install pyyaml
 
       - name: Modificar changeset
