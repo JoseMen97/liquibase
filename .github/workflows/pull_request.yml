@@ -18,5 +18,7 @@ jobs:
 
           git checkout ${{ github.event.pull_request.base.ref }}
           git checkout ${{ github.event.pull_request.head.ref }}
+
+          git branch
           
           git diff ${{ github.event.pull_request.head.ref }} ${{ github.event.pull_request.base.ref }}
