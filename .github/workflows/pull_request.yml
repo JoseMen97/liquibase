@@ -21,3 +21,6 @@ jobs:
           echo "$GITHUB_OUTPUT"
 
           echo "${{ steps.valid_changes.outputs.diff_output }}"
+
+      - name: list step
+        run: echo "${{ toJson(step.valid_changes) }}"
