@@ -16,4 +16,4 @@ jobs:
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
           
-          git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.base.ref }}" --name-only
+          git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only
