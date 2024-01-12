@@ -1,0 +1,12 @@
+name: pull_request
+run-name: Deteccion pull request
+on:
+  pull_request
+
+jobs:
+  detect_pullrequest:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: view event
+        run: echo "${{ github }}
