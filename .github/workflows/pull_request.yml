@@ -20,5 +20,5 @@ jobs:
           
       - name: list step
         run: |
-          # echo "${{ toJson(steps.valid_changes) }}"
+          echo "${{ toJson(steps.valid_changes) }}"
           echo "${{ steps.valid_changes.outputs.diff_output }}"
