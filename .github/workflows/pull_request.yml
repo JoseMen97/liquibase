@@ -21,7 +21,6 @@ jobs:
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
           echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
-      
       - name: Instalar PyYAML
         run: |
           python --version
@@ -30,7 +29,7 @@ jobs:
       - name: Modificar changeset
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
-          
+          echo "${{ steps.valid_changes.outputs.diff_output }}"
           python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog.changeSet[0].changes[0].path" "${{ steps.valid_changes.outputs.diff_output }}"
   
           
