@@ -19,7 +19,8 @@ jobs:
       - name: Validar cambios
         id: valid_changes
         run: |
-          cd ${{ github.event.pull_request.base.repo.name }}
+          # cd ${{ github.event.pull_request.base.repo.name }}
+          ls -la
           echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
 
       # - name: Setup Python
@@ -33,11 +34,8 @@ jobs:
 
       - name: Modificar changeset
         run: |
-          cd ${{ github.event.pull_request.base.repo.name }}
-          ls -la
+          # cd ${{ github.event.pull_request.base.repo.name }}
           
-          ls -la .github
-          cat .github/script/rwFileYaml.py
           python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog.changeSet[0].changes[0].path" "${{ steps.valid_changes.outputs.diff_output }}"
   
           
