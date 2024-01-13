@@ -1,4 +1,5 @@
 import yaml
+import sys
 
 # Ruta del archivo YAML
 archivo_yaml = sys.argv[1]
