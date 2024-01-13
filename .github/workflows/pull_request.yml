@@ -32,9 +32,3 @@ jobs:
           echo "${{ steps.valid_changes.outputs.diff_output }}"
           python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog[0].changeSet.changes[0].sqlFile.path" "${{ steps.valid_changes.outputs.diff_output }}"
           cat changeset_base.yaml
-  
-          
-
-        
-
-          
