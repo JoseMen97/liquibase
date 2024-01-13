@@ -30,13 +30,8 @@ jobs:
 
       - name: Modificar changeset
         run: |
-          whoami
-          ls -la
           cd ${{ github.event.pull_request.base.repo.name }}
-          pwd
-          ls -la
-          cat .github/scripts/rwFileYaml.py
-          python .github/scripts/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog.changeSet[0].changes[0].path" "${{ steps.valid_changes.outputs.diff_output }}"
+          python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog.changeSet[0].changes[0].path" "${{ steps.valid_changes.outputs.diff_output }}"
   
           
 
