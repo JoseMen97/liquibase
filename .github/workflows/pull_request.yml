@@ -11,7 +11,9 @@ jobs:
     
     steps:
       - name: checkout repositorio
-        run: git clone ${{ github.event.pull_request.base.repo.clone_url }}
+        run: |
+          git clone ${{ github.event.pull_request.base.repo.clone_url }}
+          git checkout ${{ github.event.pull_request.head.ref }}
         
       - name: Validar cambios
         id: valid_changes
