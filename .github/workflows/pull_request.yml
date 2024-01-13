@@ -30,7 +30,7 @@ jobs:
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
           echo "${{ steps.valid_changes.outputs.diff_output }}"
-          python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog.changeSet[0].changes[0].path" "${{ steps.valid_changes.outputs.diff_output }}"
+          python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog[0].changeSet.changes[0].sqlFile.path" "${{ steps.valid_changes.outputs.diff_output }}"
           cat changeset_base.yaml
   
           
