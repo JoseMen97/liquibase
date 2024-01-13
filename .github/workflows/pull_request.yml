@@ -13,6 +13,7 @@ jobs:
       - name: checkout repositorio
         run: |
           git clone ${{ github.event.pull_request.base.repo.clone_url }}
+          cd ${{ github.event.pull_request.base.repo.name }}
           git checkout ${{ github.event.pull_request.head.ref }}
         
       - name: Validar cambios
