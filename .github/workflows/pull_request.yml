@@ -20,15 +20,17 @@ jobs:
         id: valid_changes
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
-          echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
-      - name: Instalar PyYAML
-        run: |
-          python --version
-          python -m pip install pyyaml
+          diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}
+          echo diff_output
+      #     echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
+      # - name: Instalar PyYAML
+      #   run: |
+      #     python --version
+      #     python -m pip install pyyaml
 
-      - name: Modificar changeset
-        run: |
-          cd ${{ github.event.pull_request.base.repo.name }}
-          echo "${{ steps.valid_changes.outputs.diff_output }}"
-          python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog[0].changeSet.changes[0].sqlFile.path" "${{ steps.valid_changes.outputs.diff_output }}"
-          cat changeset_base.yaml
+      # - name: Modificar changeset
+      #   run: |
+      #     cd ${{ github.event.pull_request.base.repo.name }}
+      #     echo "${{ steps.valid_changes.outputs.diff_output }}"
+      #     python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog[0].changeSet.changes[0].sqlFile.path" "${{ steps.valid_changes.outputs.diff_output }}"
+      #     cat changeset_base.yaml
