@@ -3,7 +3,7 @@ run-name: Deteccion pull request
 on:
   pull_request
   
-permissions: write
+permissions: write-all
 
 jobs:
   detect_pullrequest:
