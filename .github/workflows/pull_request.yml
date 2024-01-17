@@ -10,14 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: ip 
-        run: telnet 172.17.1.2 1550
-      # - name: checkout repositorio
-      #   run: |
-      #     git clone ${{ github.event.pull_request.base.repo.clone_url }}
-      #     cd ${{ github.event.pull_request.base.repo.name }}
-      #     git checkout ${{ github.event.pull_request.head.ref }}
-        
+      - name: checkout repositorio
+        run: |
+          git clone ${{ github.event.pull_request.base.repo.clone_url }}
+          cd ${{ github.event.pull_request.base.repo.name }}
+          git checkout ${{ github.event.pull_request.head.ref }}
+
+      - name: Get Git Diff
+        id: git-diff
+        run: |
+          diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
+          echo "::set-output name=diff_output::${diff_output}"
+
+      - name: Show diff_output
+        run: |
+          echo "Type of diff_output: $(echo $diff_output)"
+          echo "Content of diff_output:"
+          echo "${diff_output}"
+          
       # - name: Validar cambios
       #   id: valid_changes
       #   run: |
