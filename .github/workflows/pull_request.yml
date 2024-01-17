@@ -11,7 +11,9 @@ jobs:
       
     steps:
       - name: chechout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
+        with: 
+          ref: ${{ github.event.pull_request.head.ref }}
         
       # - name: checkout repositorio
       #   run: |
