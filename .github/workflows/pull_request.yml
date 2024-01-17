@@ -28,27 +28,33 @@ jobs:
           
           mv *_changeset_new.yaml changesets
           
-          ls -la changesets
-          cat changesets/README.md_changeset_new.yaml
-          cat changesets/pull_request.yml_changeset_new.yaml
-          cat changesets/rwFileYaml.py_changeset_new.yaml
-          
-      # - name: Validar cambios
-      #   id: valid_changes
-      #   run: |
-      #     cd ${{ github.event.pull_request.base.repo.name }}
-      #     diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
-      #     echo $diff_output
-          
-      #     echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
-      # - name: Instalar PyYAML
-      #   run: |
-      #     python --version
-      #     python -m pip install pyyaml
+      - name: liquibase validate
+        uses: liquibase-github-actions/validate@v4.25.1
+        with:
+          changelogFile: "changelog.yaml"
+          url: "jdbc:oracle:thin:@2.tcp.ngrok.io:17603/admindb"
+          username: "FO"
+          password: ${{secrets.password}}
 
-      # - name: Modificar changeset
-      #   run: |
-      #     cd ${{ github.event.pull_request.base.repo.name }}
-      #     echo "${{ steps.valid_changes.outputs.diff_output }}"
-      #     python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog[0].changeSet.changes[0].sqlFile.path" "${{ steps.valid_changes.outputs.diff_output }}"
-      #     cat changeset_base.yaml
+      # - name: Liquibase Status Action
+      #   uses: liquibase-github-actions/status@v4.25.1
+      #   with:
+      #     changelogFile: "changelog.yaml"
+      #     url: "jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb"
+      #     username: "FO"
+      #     password: ${{secrets.password}}
+
+      # - name: Liquibase Update Sql Action
+      #   uses: liquibase-github-actions/update-sql@v4.25.1
+      #   with:
+      #     changelogFile: "changelog.yaml"
+      #     url: "jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb"
+      #     username: "FO"
+      #     password: ${{secrets.password}}
+      # - name: Liquibase Update Action
+      #   uses: liquibase-github-actions/update@v4.25.1
+      #   with:
+      #     changelogFile: "changelog.yaml"
+      #     url: "jdbc:oracle:thin:@2.tcp.ngrok.io:18988/admindb"
+      #     username: "FO"
+      #     password: ${{secrets.password}}
