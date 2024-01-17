@@ -24,8 +24,8 @@ jobs:
           echo $diff_output
           
           # # Iterar sobre los elementos
-          for element in $diff_output; do
-            echo "Elemento: $element"
+          echo "$diff_output" | while IFS= read -r line; do
+            echo "Línea: $line"
           done
           
           # python -m pip install pyyaml
