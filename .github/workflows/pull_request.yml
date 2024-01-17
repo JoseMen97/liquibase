@@ -23,10 +23,10 @@ jobs:
           Diff_Output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
           echo $Diff_Output
 
-          python -m pip install pyyaml
+          # python -m pip install pyyaml
 
-          python .github/script/rwFileYaml.py "changeset_base.yaml" "${{ github.sha }}" "${{ github.actor }}" "${{ Diff_Output }}"
-          cat changeset_base.yaml
+          # python .github/script/rwFileYaml.py "changeset_base.yaml" "${{ github.sha }}" "${{ github.actor }}" "${{ Diff_Output }}"
+          # cat changeset_base.yaml
           
       # - name: Validar cambios
       #   id: valid_changes
