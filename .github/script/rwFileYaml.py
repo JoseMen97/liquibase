@@ -17,4 +17,4 @@ contenido['databaseChangeLog'][0]['changeSet']['changes'][0]['sqlFile']['path'] 
 
 # Escribir el contenido modificado de vuelta al archivo YAML
 with open(archivo_yaml, 'w') as file:
-    yaml.dump(contenido, file, default_flow_style=True)
+    yaml.dump(contenido, file, default_flow_style=False)
