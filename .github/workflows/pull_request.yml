@@ -9,7 +9,6 @@ jobs:
   detect_pullrequest:
     runs-on: ubuntu-latest
     env:
-      DIFF_OUTPUT: "nada"
       
     steps:
       - name: checkout repositorio
@@ -22,13 +21,15 @@ jobs:
         id: git-diff
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
-          env.DIFF_OUTPUT=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
+          echo "$Diff_Output"
+        env:
+          Diff_Output: $(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
 
-      - name: Show diff_output
-        run: |
-          echo "Type of diff_output: ${{ env.DIFF_OUTPUT }} )"
-          echo "Content of diff_output:"
-          echo "${{ env.DIFF_OUTPUT }}"
+      # - name: Show diff_output
+      #   run: |
+      #     echo "Type of diff_output: ${{ env.DIFF_OUTPUT }} )"
+      #     echo "Content of diff_output:"
+      #     echo "${{ env.DIFF_OUTPUT }}"
           
       # - name: Validar cambios
       #   id: valid_changes
