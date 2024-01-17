@@ -25,7 +25,9 @@ jobs:
           git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only >> output.txt
 
           python .github/script/rwFileYaml.py
-          mv changeset_new_* /changesets
+          ls -la
+          
+          mv changeset_new_* changesets
           
           # python .github/script/rwFileYaml.py "changeset_base.yaml" ${{ github.sha }} ${{ github.actor }} $diff_output
           # cat changeset_base.yaml
