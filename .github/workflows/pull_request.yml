@@ -8,33 +8,42 @@ permissions: write-all
 jobs:
   detect_pullrequest:
     runs-on: ubuntu-latest
-    
+      
     steps:
       - name: checkout repositorio
         run: |
           git clone ${{ github.event.pull_request.base.repo.clone_url }}
           cd ${{ github.event.pull_request.base.repo.name }}
           git checkout ${{ github.event.pull_request.head.ref }}
-        
+
       - name: Validar cambios
         id: valid_changes
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
-          echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
-      
-      - name: Instalar PyYAML
-        run: |
-          python --version
+          diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
+          echo ${{ diff_output[0] }}
+
           python -m pip install pyyaml
 
-      - name: Modificar changeset
-        run: |
-          cd ${{ github.event.pull_request.base.repo.name }}
+          python .github/script/rwFileYaml.py "changeset_base.yaml" ${{ github.sha }} ${{ github.actor }} $diff_output
+          cat changeset_base.yaml
           
-          python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog.changeSet[0].changes[0].path" "${{ steps.valid_changes.outputs.diff_output }}"
-  
+      # - name: Validar cambios
+      #   id: valid_changes
+      #   run: |
+      #     cd ${{ github.event.pull_request.base.repo.name }}
+      #     diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
+      #     echo $diff_output
           
+      #     echo "diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)" >> $GITHUB_OUTPUT
+      # - name: Instalar PyYAML
+      #   run: |
+      #     python --version
+      #     python -m pip install pyyaml
 
-        
-
-          
+      # - name: Modificar changeset
+      #   run: |
+      #     cd ${{ github.event.pull_request.base.repo.name }}
+      #     echo "${{ steps.valid_changes.outputs.diff_output }}"
+      #     python .github/script/rwFileYaml.py "changeset_base.yaml" "databaseChangeLog[0].changeSet.changes[0].sqlFile.path" "${{ steps.valid_changes.outputs.diff_output }}"
+      #     cat changeset_base.yaml
