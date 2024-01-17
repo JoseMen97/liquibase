@@ -8,7 +8,9 @@ with open('output.txt', 'r') as file:
     # Itera sobre cada línea del archivo
     for line in file:
         # Imprime cada línea
-        archivo_destino = f'changeset_new_{line.strip()}.yaml'
+        partes = line.strip().split("/")
+        name = partes[-1]
+        archivo_destino = f'changeset_new_{name}.yaml'
         shutil.copy(archivo_origen, archivo_destino)
         
 # # Ruta del archivo YAML
