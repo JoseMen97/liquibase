@@ -13,6 +13,7 @@ jobs:
       - name: chechout repository
         uses: actions/checkout@v4.1.1
         with: 
+          repository: ${{ github.repository }}
           ref: ${{ github.event.pull_request.head.ref }}
         
       # - name: checkout repositorio
@@ -24,7 +25,6 @@ jobs:
       - name: Validar cambios
         id: valid_changes
         run: |
-          git branch
           git checkout ${{ github.event.pull_request.base.ref }}
 
           git branch 
