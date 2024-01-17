@@ -10,7 +10,7 @@ with open('output.txt', 'r') as file:
         # Imprime cada línea
         partes = line.strip().split("/")
         name = partes[-1]
-        archivo_destino = f'changeset_new_{name}.yaml'
+        archivo_destino = f'{name}_changeset_new.yaml'
         shutil.copy(archivo_origen, archivo_destino)
         
 # # Ruta del archivo YAML
