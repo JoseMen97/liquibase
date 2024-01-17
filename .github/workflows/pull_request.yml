@@ -31,7 +31,8 @@ jobs:
           git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only >> output.txt
 
           python .github/script/rwFileYaml.py ${{ github.sha }} ${{ github.actor }}
-          
+
+          mkdir changesets
           mv *_changeset_new.yaml changesets
           
       - name: liquibase validate
