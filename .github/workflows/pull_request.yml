@@ -28,6 +28,7 @@ jobs:
           
           mv changeset_new_* changesets
           ls -la
+          ls -la changesets
           
           # python .github/script/rwFileYaml.py "changeset_base.yaml" ${{ github.sha }} ${{ github.actor }} $diff_output
           # cat changeset_base.yaml
