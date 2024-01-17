@@ -25,7 +25,7 @@ jobs:
           git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only >> output.txt
 
           python .github/script/rwFileYaml.py
-          
+          ls -la
           # echo $diff_output
           
           # # Iterar sobre los elementos
