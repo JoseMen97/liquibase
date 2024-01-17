@@ -1,11 +1,15 @@
 import yaml
 import sys
+import shutil
+
+archivo_origen = 'changeset_base.yaml'
 
 with open('output.txt', 'r') as file:
     # Itera sobre cada línea del archivo
     for line in file:
         # Imprime cada línea
-        print(line.strip())
+        archivo_destino = f'changeset_new_{line.strip()}.yaml'
+        shutil.copy(archivo_origen, archivo_destino)
         
 # # Ruta del archivo YAML
 # archivo_yaml = sys.argv[1]
