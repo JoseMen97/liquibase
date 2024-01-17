@@ -33,7 +33,7 @@ jobs:
           python .github/script/rwFileYaml.py ${{ github.sha }} ${{ github.actor }}
           
           mv *_changeset_new.yaml changesets
-
+          ls -la changesets
 
 
           
