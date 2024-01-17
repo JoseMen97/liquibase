@@ -26,7 +26,7 @@ jobs:
 
           python .github/script/rwFileYaml.py
           
-          mv changeset_new_* changesets
+          mv *_changeset_new.yaml changesets
           ls -la
           ls -la changesets
           
