@@ -9,7 +9,7 @@ jobs:
   detect_pullrequest:
     runs-on: ubuntu-latest
     env:
-      DIFF_OUTPUT: "."
+      DIFF_OUTPUT: "nada"
       
     steps:
       - name: checkout repositorio
