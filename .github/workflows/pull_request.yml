@@ -2,7 +2,8 @@ name: pull_request
 run-name: Deteccion pull request
 on:
   pull_request:
-    types: opended
+    types: 
+      - opened
   
 permissions: write-all
 
