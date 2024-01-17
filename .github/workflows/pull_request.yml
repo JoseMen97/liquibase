@@ -29,7 +29,7 @@ jobs:
           
           # Dividir el string por espacios y almacenar los elementos en un array
           elements=($diff_output)
-          
+          echo $elements
           # Restaurar el valor original de IFS
           IFS=$oldIFS
           
