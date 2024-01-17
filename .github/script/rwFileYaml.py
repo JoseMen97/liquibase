@@ -22,7 +22,7 @@ with open('output.txt', 'r') as file:
         # Modificar la línea específica
         contenido['databaseChangeLog'][0]['changeSet']['id'] = sys.argv[1]
         contenido['databaseChangeLog'][0]['changeSet']['author'] = sys.argv[2]
-        contenido['databaseChangeLog'][0]['changeSet']['changes'][0]['sqlFile']['path'] = line
+        contenido['databaseChangeLog'][0]['changeSet']['changes'][0]['sqlFile']['path'] = line.strip()
         
         with open(archivo_yaml, 'w') as file:
             yaml.dump(contenido, file, default_flow_style=False)
