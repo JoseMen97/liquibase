@@ -29,9 +29,9 @@ jobs:
           mv *_changeset_new.yaml changesets
           
           ls -la changesets
-          cat README.md_changeset_new.yaml
-          cat pull_request.yml_changeset_new.yaml
-          cat rwFileYaml.py_changeset_new.yaml
+          cat changesets/README.md_changeset_new.yaml
+          cat changesets/pull_request.yml_changeset_new.yaml
+          cat changesets/rwFileYaml.py_changeset_new.yaml
           
       # - name: Validar cambios
       #   id: valid_changes
