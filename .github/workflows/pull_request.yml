@@ -24,14 +24,14 @@ jobs:
           cd ${{ github.event.pull_request.base.repo.name }}
           git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only >> output.txt
 
-          python .github/script/rwFileYaml.py
+          python .github/script/rwFileYaml.py ${{ github.sha }} ${{ github.actor }}
           
           mv *_changeset_new.yaml changesets
-          ls -la
-          ls -la changesets
           
-          # python .github/script/rwFileYaml.py "changeset_base.yaml" ${{ github.sha }} ${{ github.actor }} $diff_output
-          # cat changeset_base.yaml
+          ls -la changesets
+          cat README.md_changeset_new.yaml
+          cat pull_request.yml_changeset_new.yaml
+          cat rwFileYaml.py_changeset_new.yaml
           
       # - name: Validar cambios
       #   id: valid_changes
