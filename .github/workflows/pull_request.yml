@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: chechout repository
         uses: actions/checkout@v4.1.1
-        with: 
-          ref: ${{ github.event.pull_request.head.ref }}
         
       # - name: checkout repositorio
       #   run: |
@@ -25,18 +23,14 @@ jobs:
         id: valid_changes
         run: |
           git pull
-          git checkout ${{ github.event.pull_request.base.ref }}
-
-          git branch 
           
           python -m pip install pyyaml
           
-      #     # cd ${{ github.event.pull_request.base.repo.name }}
-      #     git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only >> output.txt
+          git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only >> output.txt
 
-      #     python .github/script/rwFileYaml.py ${{ github.sha }} ${{ github.actor }}
+          python .github/script/rwFileYaml.py ${{ github.sha }} ${{ github.actor }}
           
-      #     mv *_changeset_new.yaml changesets
+          mv *_changeset_new.yaml changesets
 
 
 
