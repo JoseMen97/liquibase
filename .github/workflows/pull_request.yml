@@ -25,16 +25,8 @@ jobs:
           git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only >> output.txt
 
           python .github/script/rwFileYaml.py
-          ls -la
-          # echo $diff_output
+          mv changeset_new_* /changesets
           
-          # # Iterar sobre los elementos
-          # echo "$diff_output" | while IFS= read -r line; do
-          #   echo "Línea: $line"
-          # done
-          
-          # python -m pip install pyyaml
-
           # python .github/script/rwFileYaml.py "changeset_base.yaml" ${{ github.sha }} ${{ github.actor }} $diff_output
           # cat changeset_base.yaml
           
