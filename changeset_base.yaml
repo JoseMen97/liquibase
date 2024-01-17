@@ -2,10 +2,10 @@ databaseChangeLog:
   - changeSet:
       id:
       author:
-      runWith: "sqlplus"
       changes:
         - sqlFile:
-            relativeToChangelogFile: true
             path:
+            relativeToChangelogFile: true
+            endDelimiter: "/"
             encoding: "UTF-8"
             dbms: "oracle"
