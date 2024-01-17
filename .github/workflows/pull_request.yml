@@ -8,7 +8,6 @@ permissions: write-all
 jobs:
   detect_pullrequest:
     runs-on: ubuntu-latest
-    env:
       
     steps:
       - name: checkout repositorio
