@@ -23,20 +23,20 @@ jobs:
           diff_output= git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only
           echo $diff_output
           
-          # Definir el antiguo valor de IFS (Internal Field Separator) para evitar problemas con espacios en los nombres de archivos
-          oldIFS=$IFS
-          IFS=' '
+          # # Definir el antiguo valor de IFS (Internal Field Separator) para evitar problemas con espacios en los nombres de archivos
+          # oldIFS=$IFS
+          # IFS=' '
           
-          # Dividir el string por espacios y almacenar los elementos en un array
-          elements=($diff_output)
-          echo $elements
-          # Restaurar el valor original de IFS
-          IFS=$oldIFS
+          # # Dividir el string por espacios y almacenar los elementos en un array
+          # elements=($diff_output)
+          # echo $elements
+          # # Restaurar el valor original de IFS
+          # IFS=$oldIFS
           
-          # Iterar sobre los elementos
-          for element in "${elements[@]}"; do
-            echo "Elemento: $element"
-          done
+          # # Iterar sobre los elementos
+          # for element in "${elements[@]}"; do
+          #   echo "Elemento: $element"
+          # done
           
           # python -m pip install pyyaml
 
