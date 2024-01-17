@@ -19,14 +19,24 @@ jobs:
       - name: Validar cambios
         id: valid_changes
         run: |
-          cd ${{ github.event.pull_request.base.repo.name }}
-          diff_output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
-          echo ${{ diff_output[0] }}
-
           python -m pip install pyyaml
+          
+          cd ${{ github.event.pull_request.base.repo.name }}
+          git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only >> output.txt
 
-          python .github/script/rwFileYaml.py "changeset_base.yaml" ${{ github.sha }} ${{ github.actor }} $diff_output
-          cat changeset_base.yaml
+          python .github/script/rwFileYaml.py
+          ls -la
+          # echo $diff_output
+          
+          # # Iterar sobre los elementos
+          # echo "$diff_output" | while IFS= read -r line; do
+          #   echo "Línea: $line"
+          # done
+          
+          # python -m pip install pyyaml
+
+          # python .github/script/rwFileYaml.py "changeset_base.yaml" ${{ github.sha }} ${{ github.actor }} $diff_output
+          # cat changeset_base.yaml
           
       # - name: Validar cambios
       #   id: valid_changes
