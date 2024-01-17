@@ -20,13 +20,13 @@ jobs:
         id: valid_changes
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
-          diff_output= (git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
-          echo $diff_output
+          git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only
+          # echo $diff_output
           
           # # Iterar sobre los elementos
-          echo "$diff_output" | while IFS= read -r line; do
-            echo "Línea: $line"
-          done
+          # echo "$diff_output" | while IFS= read -r line; do
+          #   echo "Línea: $line"
+          # done
           
           # python -m pip install pyyaml
 
