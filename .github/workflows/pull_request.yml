@@ -20,15 +20,13 @@ jobs:
         id: git-diff
         run: |
           cd ${{ github.event.pull_request.base.repo.name }}
-          echo "$Diff_Output"
-        env:
-          Diff_Output: $(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
+          Diff_Output=$(git diff "origin/${{ github.event.pull_request.base.ref }}" "origin/${{ github.event.pull_request.head.ref }}" --name-only)
+          echo $Diff_Output
 
-      # - name: Show diff_output
-      #   run: |
-      #     echo "Type of diff_output: ${{ env.DIFF_OUTPUT }} )"
-      #     echo "Content of diff_output:"
-      #     echo "${{ env.DIFF_OUTPUT }}"
+          python -m pip install pyyaml
+
+          python .github/script/rwFileYaml.py "changeset_base.yaml" "${{ github.sha }}" "${{ github.actor }}" "${{ Diff_Output }}"
+          cat changeset_base.yaml
           
       # - name: Validar cambios
       #   id: valid_changes
