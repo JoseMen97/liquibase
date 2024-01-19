@@ -24,7 +24,7 @@ jobs:
 
       - name: Validar cambios
         id: valid_changes
-        run: echo ${{ toJson(github.event.pull_request) }}
+        run: echo "${{ toJson(github.event.pull_request) }}"
           # git pull
           
           # python -m pip install pyyaml
