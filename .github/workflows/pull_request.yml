@@ -11,7 +11,9 @@ jobs:
   detect_pullrequest:
     runs-on: ubuntu-latest
       
-    # steps:
+    steps:
+      - name: ls
+        run: ls -la
     #   - name: chechout repository
     #     uses: actions/checkout@v4.1.1
     #     with:
