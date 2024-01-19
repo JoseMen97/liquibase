@@ -22,7 +22,7 @@ jobs:
 
       - name: Validar cambios
         id: valid_changes
-        run: echo ${ github.event.pull_request.body }}
+        run: echo ${{ github.event.pull_request.body }}
           # git pull
           
           # python -m pip install pyyaml
