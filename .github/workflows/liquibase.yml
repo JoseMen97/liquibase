@@ -26,7 +26,7 @@ jobs:
 
       - name: Validar cambios
         id: valid_changes
-        run: echo "$env.SCRIPTS"
+        run: echo "${{ env.SCRIPTS }}"
           # git pull
           
           # python -m pip install pyyaml
